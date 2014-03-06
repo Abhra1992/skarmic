@@ -1,0 +1,50 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  background-color: white;
+  margin-bottom: 0;
+}
+
+.lead-banner {
+
+}
+.banner-image-container {
+  text-align: center;
+}
+.lead-content {
+  margin-top: 30px;
+  h2 {
+    margin-bottom: 15px;
+  }
+  .btn {
+    margin: 10px 10px 0 0;
+    padding: 10px 30px;
+    text-transform: uppercase;
+  }
+}
+.features {
+  text-align: center;
+  .feature {
+    border-left: 1px dashed #C9C9C9;
+    padding: 30px;
+  }
+  .desc {
+    color: rgb(150, 150, 150);
+    font-size: 18px;
+    margin: 0;
+  }
+  .feature:first-child {
+    border: medium none;
+  }
+  .holder {
+    display: inline-block;
+    margin: 15px 0;
+    min-height: 32px;
+  }
+  .fa {
+    font-size: 220%;
+    margin: 0 10px;
+  }
+}
