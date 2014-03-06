@@ -16,5 +16,20 @@ namespace :db do
         c.save
       end
     end
+
+    puts "Adding Recruiters and Positions"
+    Company.find_each do |c|
+      5.times do
+        Recruiter.new do |r|
+          r.fname = Faker::Name.first_name
+          r.lname = Faker::Name.last_name
+          r.username = Faker::Internet.user_name(r.name)
+          r.company = c
+          r.email = Faker::Internet.email(r.fname)
+          r.password = "00000000"
+          r.save
+        end
+      end
+    end
   end
 end

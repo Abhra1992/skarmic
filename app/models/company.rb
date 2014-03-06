@@ -1,4 +1,6 @@
 class Company < ActiveRecord::Base
+  has_many :recruiters
+
   validates_presence_of :name, :city, :state
 
   serialize :about
