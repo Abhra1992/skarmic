@@ -1,0 +1,24 @@
+<div class="jumbotron">
+  <div class="lead-banner container-fluid">
+    <div class="banner-image-container col-lg-5 col-md-5 col-sm-6 col-xs-12 visible-sm visible-xs">
+      <%= banner %>
+    </div>
+    <div class="lead-content col-lg-7 col-md-7 col-sm-6 col-xs-12">
+      <h2>Discover and Hire Top University Talent</h2>
+      <p>Where innovative companies find Talented, Originative and Passionate students via a re-imagined application process</p>
+      <%= link_to "Employer", "#", class: "btn btn-success", "data-toggle" => "modal", "data-target" => "#employer" %>
+      <%= link_to "Student", "#", class: "btn btn-primary", "data-toggle" => "modal", "data-target" => "#student" %>
+    </div>
+    <div class="banner-image-container col-lg-5 col-md-5 col-sm-6 col-xs-12 hidden-sm hidden-xs">
+      <%= banner %>
+    </div>
+  </div>
+</div>
+
+<div class="footer-top features-container container-fluid">
+  <div class="row features">
+    <%= render 'features', feature: "Novel Screening", icons: ["video-camera", "question", "lightbulb-o", "pencil"], desc: "Evolve your recruitment process by blending art and science" %>
+    <%= render 'features', feature: "Social Graph", icons: ["github", "facebook", "linkedin", "twitter"], desc: "Review candidate's entire social media presence on the web" %>
+    <%= render 'features', feature: "Semantic Match", icons: ["edit", "bar-chart-o", "users", "list-ol"], desc: "Automatically analyze applications and find top innovators" %>
+  </div>
+</div>
