@@ -12,3 +12,18 @@
  *= require font-awesome
  *= require_self
  */
+
+body {
+  padding-top: 50px;
+}
+main {
+  min-height: 520px;
+  background-color: rgba(230, 230, 230, 0.8);
+}
+footer {
+  /*background-color: #2C3E50;*/
+  /*color: white;*/
+  height: 40px;
+  padding: 8px 0;
+  text-align: center;
+}
