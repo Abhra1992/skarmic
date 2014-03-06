@@ -34,6 +34,7 @@ Skarmic::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+  resources :positions, only: :show
 
   # Example resource route with more complex sub-resources:
   #   resources :products do

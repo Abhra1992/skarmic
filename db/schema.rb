@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306205305) do
+ActiveRecord::Schema.define(version: 20140306214105) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -25,6 +25,31 @@ ActiveRecord::Schema.define(version: 20140306205305) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "positions", force: true do |t|
+    t.string   "title"
+    t.integer  "hours"
+    t.integer  "duration"
+    t.text     "skills_required"
+    t.text     "skills_desired"
+    t.integer  "compensation"
+    t.text     "responsibilities"
+    t.integer  "count"
+    t.date     "available_from"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "positions", ["company_id"], name: "index_positions_on_company_id"
+
+  create_table "positions_recruiters", id: false, force: true do |t|
+    t.integer "position_id",  null: false
+    t.integer "recruiter_id", null: false
+  end
+
+  add_index "positions_recruiters", ["position_id", "recruiter_id"], name: "index_positions_recruiters_on_position_id_and_recruiter_id"
+  add_index "positions_recruiters", ["recruiter_id", "position_id"], name: "index_positions_recruiters_on_recruiter_id_and_position_id"
 
   create_table "recruiters", force: true do |t|
     t.string   "fname"

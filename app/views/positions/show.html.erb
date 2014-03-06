@@ -1,0 +1,31 @@
+<section class="position-show">
+  <div class="container-fluid">
+    <h3><%= @position %> @ <%= link_to @company, @company %></h3>
+    <hr/>
+    <h4>Required Skills</h4>
+    <ul>
+      <% @position.skills_required.each do |s| %>
+      <li><%= s %></li>
+      <% end %>
+    </ul>
+    <h4>Desired Skills</h4>
+    <ul>
+      <% @position.skills_desired.each do |s| %>
+      <li><%= s %></li>
+      <% end %>
+    </ul>
+    <h4>Responsibilities</h4>
+    <ul>
+      <% @position.responsibilities.each do |s| %>
+      <li><%= s %></li>
+      <% end %>
+    </ul>
+    <h4>Compensation</h4>
+    <p>USD <%= @position.compensation %></p>
+    <h4>Contact</h4>
+    <% @position.recruiters.each do |r| %>
+    <p><%= mail_to r.email, r %></p>
+    <% end %>
+    <hr/>
+  </div>
+</section>
