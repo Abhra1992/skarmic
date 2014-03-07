@@ -1,4 +1,5 @@
 Skarmic::Application.routes.draw do
+  devise_for :candidates
   devise_for :recruiters
   get "pages/contact"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -30,6 +30,7 @@ namespace :db do
           r.save
         end
       end
+
       puts "Adding Positions"
       3.times do
         c.positions.new do |p|
@@ -45,11 +46,37 @@ namespace :db do
           p.save
         end
       end
+
       puts "Connecting Recruiters to Positions"
       6.times do
         r = c.recruiters.sample
         p = c.positions.sample
         r.positions << p
+      end
+    end
+
+    puts "Adding Candidates"
+    20.times do
+      Candidate.new do |c|
+        c.fname = Faker::Name.first_name
+        c.lname = Faker::Name.last_name
+        c.username = Faker::Internet.user_name(c.fname)
+        c.about = Faker::Lorem.sentence
+        c.city = Faker::Address.city
+        c.email = Faker::Internet.email(c.fname)
+        c.password = "00000000"
+        c.save
+      end
+    end
+
+    puts "Adding Applications"
+    Position.find_each do |p|
+      Candidate.all.sample(5).each do |c|
+        p.applications.new do |a|
+          a.candidate = c
+          a.rating = rand(6)
+          a.save
+        end
       end
     end
   end
