@@ -1,0 +1,22 @@
+<ul class="list-inline" id="filter-list">
+  <li><strong>Filter</strong>:</li>
+  <li><%= link_to 'Fit', '#' %></li>
+  <li><%= link_to 'Date', '#' %></li>
+  <li><%= link_to 'Campus', '#' %></li>
+  <li><%= link_to 'Starred', '#' %></li>
+</ul>
+<section id="candidates-list">
+  <% applications.each do |a| %>
+  <div class="checkbox">
+    <label>
+      <input id="checkbox<%= a.candidate_id %>" type="checkbox" />
+      <%= a.candidate %>
+      <%= link_to "(Review)", "review_application_path(a)", class: "review-link", remote: true %>
+    </label>
+  </div>
+  <% end %>
+</section>
+<p id="candidates-compare">
+  <%= applications.count %> candidates <text id="selected-count"></text><br/>
+  <%= link_to 'Compare', '#' %>
+</p>

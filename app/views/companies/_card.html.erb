@@ -1,15 +1,13 @@
-<section class="company-card">
-  <div class="container-fluid">
-    <h1><%= company %></h1>
-    <address>
-      <%= company.address %><br/>
-      <%= company.city %>, <%= company.state %> <%= company.zip %>
-    </address>
-    <h4>Openings</h4>
-    <ul>
-      <% positions.each do |p| %>
-      <li><%= link_to p, p %>(<%= p.count %>)</li>
-      <% end %>
-    </ul>
-  </div>
+<section class="company-card row">
+  <h1><%= company %></h1>
+  <address>
+    <%= company.address %><br/>
+    <%= company.city %>, <%= company.state %> <%= company.zip %>
+  </address>
+  <h4>Openings</h4>
+  <ul>
+    <% positions.each do |p| %>
+    <li><%= link_to p, p %>(<%= p.count %>)</li>
+    <% end %>
+  </ul>
 </section>
