@@ -7,6 +7,7 @@ class Recruiter < ActiveRecord::Base
   belongs_to :company
   has_and_belongs_to_many :positions
 
+  validates_presence_of :fname, :lname
   validates :username, presence: true, uniqueness: true
 
   def name
