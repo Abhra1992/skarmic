@@ -7,8 +7,18 @@
     padding-right: 0;
   }
 }
+.tab-content {
+  background-color: white;
+}
 .description {
   border-left: 1px solid lightgray;
+}
+.actions {
+  .list-inline {
+    background-color: rgb(242, 247, 249);
+    border-radius: 7px;
+    padding: 10px;
+  }
 }
 #star-rating {
   direction: rtl;
@@ -29,7 +39,11 @@
     }
   }
 }
+.quote {
+  text-align: center;
+}
 #profiles {
+  text-align: center;
   > a {
     display: inline-block;
   }

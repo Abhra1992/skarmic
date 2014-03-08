@@ -1,47 +1,47 @@
 <section class="companies-show container-fluid">
-  <div class="row">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs nav-stacked col-md-2 col-sm-12">
-      <li><%= link_to "Welcome", "#welcome", "data-toggle" => "tab" %></li>
-      <li class="active"><%= link_to "Openings", "#openings", "data-toggle" => "tab" %></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content col-md-10 col-sm-12">
-      <div class="tab-pane fade" id="welcome">
-        <%= render 'card', company: @company, positions: @positions %>
-      </div>
-      <div class="tab-pane fade in active" id="openings">
-        <section class="row">
-          <form class="form-horizontal" role="form">
-            <div class="form-group">
-              <label for="select-opening" class="col-md-2 control-label">Select Opening</label>
-              <div class="col-md-4">
-                <select class="form-control" id="select-opening">
-                  <%= options_for_select(@company.position_selector) %>
-                </select>
-              </div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs nav-stacked col-md-2 col-sm-12">
+    <li><%= link_to "Welcome", "#welcome", "data-toggle" => "tab" %></li>
+    <li class="active"><%= link_to "Openings", "#openings", "data-toggle" => "tab" %></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content col-md-10 col-sm-12">
+    <div class="tab-pane fade" id="welcome">
+      <%= render 'card', company: @company, positions: @positions %>
+    </div>
+    <div class="tab-pane fade in active" id="openings">
+      <section class="row">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label for="select-opening" class="col-md-2 control-label">Select Opening</label>
+            <div class="col-md-4">
+              <select class="form-control" id="select-opening">
+                <%= options_for_select(@company.position_selector) %>
+              </select>
             </div>
-          </form>
-        </section>
-        <section class="application-info row">
-          <ul class="list-inline col-md-12 col-sm-12">
+          </div>
+        </form>
+      </section>
+      <section class="application-info actions row">
+        <div class="col-md-12">
+          <ul class="list-inline">
             <li><strong>Actions:</strong></li>
             <li><a href="#send-message" class="scroll">Send Message</a></li>|
             <li><a href="#" data-toggle="modal" data-target="#applicationStatus">Move to stage 1</a></li>|
             <li><a href="#">Delete</a></li>|
             <li><a href="#notes" class="scroll">Add note</a></li>
           </ul>
-        </section>
-        <section class="row details" id="details">
-          <% position = @positions[0] %>
-          <div class="col-md-3 filter" id="filter">
-            <%= render 'filter', applications: position.applications %>
-          </div>
-          <div class="col-md-9 description review" id="description">
-            <%= render 'companies/application/review', application: position.applications[0] %>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <section class="row details" id="details">
+        <% position = @positions[0] %>
+        <div class="col-md-3 filter" id="filter">
+          <%= render 'filter', applications: position.applications %>
+        </div>
+        <div class="col-md-9 description review" id="description">
+          <%= render 'companies/application/review', application: position.applications[0] %>
+        </div>
+      </section>
     </div>
   </div>
 </section>
