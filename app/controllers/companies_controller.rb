@@ -7,6 +7,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find params[:id]
+    @positions = @company.positions
     respond_with @company
   end
 end

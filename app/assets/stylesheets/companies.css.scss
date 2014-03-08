@@ -2,6 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.all-companies {
-  list-style: none;
+.companies-show {
+  .nav {
+    padding: 0;
+  }
+}
+.tab-content {
+  background-color: white;
+}
+.description {
+  border-left: 1px solid lightgray;
+}
+.actions {
+  .list-inline {
+    background-color: rgb(242, 247, 249);
+    border-radius: 7px;
+    padding: 10px;
+  }
+}
+#star-rating {
+  direction: rtl;
+  font-size: 18px;
+  text-align: left;
+  unicode-bidi: bidi-override;
+  > a {
+    display: inline-block;
+    /*position: relative;*/
+    &:hover {
+      text-decoration: none;
+    }
+    &:hover:before,
+    &:hover ~ a:before {
+      content: '★'; /* Original star is &#9734;, filled is \2605 */
+      cursor: pointer;
+      position: absolute;
+    }
+  }
+}
+.quote {
+  text-align: center;
+}
+#profiles {
+  text-align: center;
+  > a {
+    display: inline-block;
+  }
 }

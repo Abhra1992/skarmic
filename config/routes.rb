@@ -1,4 +1,6 @@
 Skarmic::Application.routes.draw do
+  devise_for :candidates
+  devise_for :recruiters
   get "pages/contact"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -33,6 +35,11 @@ Skarmic::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+  resources :positions, only: :show do
+    namespace :candidate do
+      resources :applications, only: [:create, :destroy]
+    end
+  end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
@@ -55,4 +62,13 @@ Skarmic::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :candidate do
+    resources :applications, only: [:index, :show]
+  end
+
+  namespace :recruiter do
+    resources :applications, only: :show do
+      put "rate", on: :member
+    end
+  end
 end
