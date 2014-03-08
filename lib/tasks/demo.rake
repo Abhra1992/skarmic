@@ -80,5 +80,17 @@ namespace :db do
         end
       end
     end
+
+    puts "Adding Messages and Notes"
+    Application.find_each do |a|
+      (c, r) = [a.candidate, a.recruiters.sample]
+      6.times do
+        a.messages.new do |m|
+          m.body = Faker::Lorem.sentence
+          m.messager = [c, r].sample
+          m.save
+        end
+      end
+    end
   end
 end

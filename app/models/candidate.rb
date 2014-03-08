@@ -5,6 +5,7 @@ class Candidate < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
   has_many :applications
   has_many :positions, through: :applications
+  has_many :messages, as: :messager
 
   validates_presence_of :fname, :lname
   validates :username, presence: true, uniqueness: true

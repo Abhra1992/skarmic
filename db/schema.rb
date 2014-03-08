@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307171056) do
+ActiveRecord::Schema.define(version: 20140308140533) do
 
   create_table "applications", force: true do |t|
     t.integer  "candidate_id"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 20140307171056) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "messages", force: true do |t|
+    t.integer  "application_id"
+    t.integer  "messager_id"
+    t.string   "messager_type"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["application_id"], name: "index_messages_on_application_id"
+  add_index "messages", ["messager_id", "messager_type"], name: "index_messages_on_messager_id_and_messager_type"
 
   create_table "positions", force: true do |t|
     t.string   "title"

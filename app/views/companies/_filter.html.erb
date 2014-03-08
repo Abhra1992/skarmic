@@ -12,7 +12,7 @@
       <label>
         <input id="checkbox<%= a.candidate_id %>" type="checkbox" />
         <%= a.candidate %>
-        <%= link_to "(Review)", recruiter_application_path(a), class: "review-link", remote: true %>
+        <%= link_to (icon "hand-o-right"), recruiter_application_path(a), class: "review-link", remote: true %>
       </label>
     </div>
     <% end %>
