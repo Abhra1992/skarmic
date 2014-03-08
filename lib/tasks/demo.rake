@@ -48,10 +48,8 @@ namespace :db do
       end
 
       puts "Connecting Recruiters to Positions"
-      6.times do
-        r = c.recruiters.sample
-        p = c.positions.sample
-        r.positions << p
+      c.positions.each do |p|
+        p.recruiters << c.recruiters.sample
       end
     end
 
