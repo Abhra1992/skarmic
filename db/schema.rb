@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20140308140533) do
   create_table "applications", force: true do |t|
     t.integer  "candidate_id"
     t.integer  "position_id"
-    t.integer  "stage"
-    t.integer  "rating"
+    t.integer  "stage",        default: 0
+    t.integer  "rating",       default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

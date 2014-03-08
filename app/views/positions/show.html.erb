@@ -1,30 +1,44 @@
 <section class="position-show container-fluid">
-  <h2><%= @position %> @ <%= link_to @company, @company %></h2>
-  <p><%= pluralize @position.count, "Opening" %> - <%= pluralize @position.applications.count, "Applicant" %>
-  <hr/>
-  <h3>Required Skills</h3>
-  <ul>
-    <% @position.skills_required.each do |s| %>
-    <li><%= s %></li>
-    <% end %>
-  </ul>
-  <h3>Desired Skills</h3>
-  <ul>
-    <% @position.skills_desired.each do |s| %>
-    <li><%= s %></li>
-    <% end %>
-  </ul>
-  <h3>Responsibilities</h3>
-  <ul>
-    <% @position.responsibilities.each do |s| %>
-    <li><%= s %></li>
-    <% end %>
-  </ul>
-  <h3>Compensation</h3>
-  <p>USD <%= @position.compensation %></p>
-  <h3>Contact</h3>
-  <% @position.recruiters.each do |r| %>
-  <p><%= mail_to r.email, r %></p>
-  <% end %>
-  <hr/>
+  <div class="row details">
+    <div class="col-md-8 col-sm-12" id="details">
+      <h2><%= @position %> @ <%= link_to @company, @company %></h2>
+      <p><%= pluralize @position.count, "Opening" %> - <%= pluralize @position.applications.count, "Applicant" %>
+      <h3>Required Skills</h3>
+      <ul>
+        <% @position.skills_required.each do |s| %>
+        <li><%= s %></li>
+        <% end %>
+      </ul>
+      <h3>Desired Skills</h3>
+      <ul>
+        <% @position.skills_desired.each do |s| %>
+        <li><%= s %></li>
+        <% end %>
+      </ul>
+      <h3>Responsibilities</h3>
+      <ul>
+        <% @position.responsibilities.each do |s| %>
+        <li><%= s %></li>
+        <% end %>
+      </ul>
+      <h3>Compensation</h3>
+      <p>USD <%= @position.compensation %></p>
+      <h3>Contact</h3>
+      <% @position.recruiters.each do |r| %>
+      <p><%= mail_to r.email, r %></p>
+      <% end %>
+    </div>
+    <div class="application col-md-4 col-sm-12" id="application">
+      <% if candidate_signed_in? %>
+      <% if @application.nil? %>
+      <%= render "not_applied", position: @position %>
+      <% else %>
+      <%= render "applied", position: @position, application: @application %>
+      <% end %>
+      <% else %>
+      <%= link_to "Sign In to Apply", new_candidate_session_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
 </section>

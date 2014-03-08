@@ -35,7 +35,11 @@ Skarmic::Application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-  resources :positions, only: :show
+  resources :positions, only: :show do
+    namespace :candidate do
+      resources :applications, only: [:create, :destroy]
+    end
+  end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
@@ -58,9 +62,9 @@ Skarmic::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  # namespace :candidate do
-  #   resources :applications, only: [:index, :show, :create, :destroy]
-  # end
+  namespace :candidate do
+    resources :applications, only: [:index, :show]
+  end
 
   namespace :recruiter do
     resources :applications, only: :show do

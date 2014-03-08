@@ -7,4 +7,8 @@ class Application < ActiveRecord::Base
   has_many :messagers, through: :messages
 
   validates_numericality_of :stage, :rating
+
+  def company
+    position.company
+  end
 end
