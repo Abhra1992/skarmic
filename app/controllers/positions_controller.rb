@@ -4,7 +4,7 @@ class PositionsController < ApplicationController
   def show
     @position = Position.find params[:id]
     @company = @position.company
-    @application = candidate_signed_in? && current_candidate.applications.find_by_position_id(@position.id)
+    @application = (candidate_signed_in? and current_candidate.applications.find_by_position_id(@position.id))
     respond_with @position
   end
 end

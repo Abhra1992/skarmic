@@ -6,9 +6,12 @@
       <%= company.city %>, <%= company.state %> <%= company.zip %>
     </address>
     <h4>Openings</h4>
-    <ul>
+    <ul class="list-group">
       <% positions.each do |p| %>
-      <li><%= link_to p, p %>(<%= p.count %>)</li>
+      <li class="position list-group-item">
+        <%= link_to p, p, class: ((@applied and p.id.in? @applied) ? "text-success" : "text-info") %>
+        <span class="badge"><%= p.count %></span>
+      </li>
       <% end %>
     </ul>
   </div>
