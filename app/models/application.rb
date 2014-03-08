@@ -11,4 +11,8 @@ class Application < ActiveRecord::Base
   def company
     position.company
   end
+
+  def recent_messages
+    messages.last(5)
+  end
 end
