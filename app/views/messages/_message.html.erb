@@ -1,8 +1,8 @@
-<div class="panel panel-default">
+<div class="panel <%= (message.messager_type.eql? "Recruiter") ? "panel-info" : "panel-success" %>">
   <div class="panel-heading">
     <h4 class="panel-title">
       <%= link_to "#message-#{message.id}", "data-toggle" => "collapse", "data-parent" => "#accordion" do %>
-        <%= message.messager %> <small class="text-muted ml-5"><%= distance_of_time_in_words_to_now message.created_at %></small>
+        <%= message.messager %> <small class="text-muted ml-5"><%= distance_of_time_in_words_to_now message.created_at %> ago</small>
       <% end %>
     </h4>
   </div>
