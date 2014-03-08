@@ -9,6 +9,8 @@ class Candidate < ActiveRecord::Base
   validates_presence_of :fname, :lname
   validates :username, presence: true, uniqueness: true
 
+  mount_uploader :avatar, AvatarUploader
+
   def name
     "%s %s" % [fname, lname]
   end
