@@ -45,4 +45,12 @@
 
 <%= render "companies/application/probing" %>
 <%= render "companies/application/attachments" %>
-<%= render "companies/application/messages", application: application %>
+
+<section class="messages row">
+  <div class="col-md-12 col-sm-12">
+    <h4 class="mt-0">Messages</h4>
+    <div class="panel-group chat-messages" id="accordion">
+      <%= render application.messages %>
+    </div>
+  </div>
+</section>
