@@ -26,19 +26,19 @@
 </section>
 
 <section class="row" id="profiles">
-  <%= link_to "https://github.com/Abhra1992", class: "github" do %>
+  <%= link_to "https://github.com/Abhra1992", class: "github", target: "_blank" do %>
     <span class="text-info col-md-12 col-sm-12"><%= icon "github-square" %> 11 Followers</span>
   <% end %>
-  <%= link_to "http://in.linkedin.com/in/abhrabasak", class: "linkedin" do %>
+  <%= link_to "http://in.linkedin.com/in/abhrabasak", class: "linkedin", target: "_blank" do %>
     <span class="text-info col-md-12 col-sm-12"><%= icon "linkedin-square" %> 7 Recommendations</span>
   <% end %>
-  <%= link_to "https://quora.com/Abhra-Basak", class: "quora" do %>
+  <%= link_to "https://quora.com/Abhra-Basak", class: "quora", target: "_blank" do %>
     <span class="text-info col-md-12 col-sm-12"><%= icon "bitbucket-square" %> 61 Answers</span>
   <% end %>
-  <%= link_to "https://twitter.com/abhra_basak", class: "twitter" do %>
+  <%= link_to "https://twitter.com/abhra_basak", class: "twitter", target: "_blank" do %>
     <span class="text-info col-md-12 col-sm-12"><%= icon "twitter-square" %> 250 Tweets</span>
   <% end %>
-  <%= link_to "http://stackoverflow.com/users/1090241/abhra-basak", class: "stackoverflow" do %>
+  <%= link_to "http://stackoverflow.com/users/1090241/abhra-basak", class: "stackoverflow", target: "_blank" do %>
     <span class="text-info col-md-12 col-sm-12"><%= icon "stack-overflow" %> 110 Reputation</span>
   <% end %>
 </section>
@@ -49,8 +49,9 @@
 <section class="messages row">
   <div class="col-md-12 col-sm-12">
     <h4 class="mt-0">Messages</h4>
+    <p><%= link_to "View Older Messages", "#" %> <%= icon "refresh" %></p>
     <div class="panel-group chat-messages" id="accordion">
-      <%= render application.messages %>
+      <%= render application.recent_messages %>
     </div>
   </div>
 </section>
