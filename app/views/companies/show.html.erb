@@ -14,8 +14,8 @@
         <section class="row">
           <form class="form-horizontal" role="form">
             <div class="form-group">
-              <label for="select-opening" class="col-md-3 control-label">Select Opening</label>
-              <div class="col-md-8">
+              <label for="select-opening" class="col-md-2 control-label">Select Opening</label>
+              <div class="col-md-4">
                 <select class="form-control" id="select-opening">
                   <%= options_for_select(@company.position_selector) %>
                 </select>
@@ -24,7 +24,7 @@
           </form>
         </section>
         <section class="application-info row">
-          <ul class="list-inline">
+          <ul class="list-inline col-md-12 col-sm-12">
             <li><strong>Actions:</strong></li>
             <li><a href="#send-message" class="scroll">Send Message</a></li>|
             <li><a href="#" data-toggle="modal" data-target="#applicationStatus">Move to stage 1</a></li>|
@@ -33,11 +33,12 @@
           </ul>
         </section>
         <section class="row details" id="details">
-          <div class="col-md-4" id="filter">
-            <%= render 'filter', applications: @positions[0].applications %>
+          <% position = @positions[0] %>
+          <div class="col-md-3 filter" id="filter">
+            <%= render 'filter', applications: position.applications %>
           </div>
-          <div class="col-md-8" id="description">
-            <%# render 'application_review', application: @positions[0].applications[0] %>
+          <div class="col-md-9 description review" id="description">
+            <%= render 'companies/application/review', application: position.applications[0] %>
           </div>
         </section>
       </div>

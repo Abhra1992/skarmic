@@ -1,32 +1,30 @@
-<section class="position-show">
-  <div class="container-fluid">
-    <h2><%= @position %> @ <%= link_to @company, @company %></h2>
-    <p><%= pluralize @position.count, "Opening" %> - <%= pluralize @position.applications.count, "Applicant" %>
-    <hr/>
-    <h3>Required Skills</h3>
-    <ul>
-      <% @position.skills_required.each do |s| %>
-      <li><%= s %></li>
-      <% end %>
-    </ul>
-    <h3>Desired Skills</h3>
-    <ul>
-      <% @position.skills_desired.each do |s| %>
-      <li><%= s %></li>
-      <% end %>
-    </ul>
-    <h3>Responsibilities</h3>
-    <ul>
-      <% @position.responsibilities.each do |s| %>
-      <li><%= s %></li>
-      <% end %>
-    </ul>
-    <h3>Compensation</h3>
-    <p>USD <%= @position.compensation %></p>
-    <h3>Contact</h3>
-    <% @position.recruiters.each do |r| %>
-    <p><%= mail_to r.email, r %></p>
+<section class="position-show container-fluid">
+  <h2><%= @position %> @ <%= link_to @company, @company %></h2>
+  <p><%= pluralize @position.count, "Opening" %> - <%= pluralize @position.applications.count, "Applicant" %>
+  <hr/>
+  <h3>Required Skills</h3>
+  <ul>
+    <% @position.skills_required.each do |s| %>
+    <li><%= s %></li>
     <% end %>
-    <hr/>
-  </div>
+  </ul>
+  <h3>Desired Skills</h3>
+  <ul>
+    <% @position.skills_desired.each do |s| %>
+    <li><%= s %></li>
+    <% end %>
+  </ul>
+  <h3>Responsibilities</h3>
+  <ul>
+    <% @position.responsibilities.each do |s| %>
+    <li><%= s %></li>
+    <% end %>
+  </ul>
+  <h3>Compensation</h3>
+  <p>USD <%= @position.compensation %></p>
+  <h3>Contact</h3>
+  <% @position.recruiters.each do |r| %>
+  <p><%= mail_to r.email, r %></p>
+  <% end %>
+  <hr/>
 </section>
