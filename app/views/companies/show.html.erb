@@ -1,11 +1,19 @@
 <section class="companies-show container-fluid">
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs nav-stacked col-md-2 col-sm-12">
-    <li><%= link_to "Welcome", "#welcome", "data-toggle" => "tab" %></li>
-    <li class="active"><%= link_to "Openings", "#openings", "data-toggle" => "tab" %></li>
+  <ul class="nav nav-pills nav-stacked col-md-2 col-sm-12">
+    <li>
+      <%= link_to "#welcome", "data-toggle" => "tab" do %>
+        <%= icon "home" %> Welcome
+      <% end %>
+    </li>
+    <li class="active">
+      <%= link_to "#openings", "data-toggle" => "tab" do %>
+        <%= icon "briefcase" %> Openings
+      <% end %>
+    </li>
   </ul>
   <!-- Tab panes -->
-  <div class="tab-content col-md-10 col-sm-12">
+  <div class="tab-content well col-md-10 col-sm-12">
     <div class="tab-pane fade" id="welcome">
       <%= render 'card', company: @company, positions: @positions %>
     </div>
