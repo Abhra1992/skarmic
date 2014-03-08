@@ -2,6 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.all-companies {
-  list-style: none;
+.companies-show {
+  .nav {
+    padding-right: 0;
+  }
+}
+.description {
+  border-left: 1px solid lightgray;
+}
+#star-rating {
+  direction: rtl;
+  font-size: 18px;
+  text-align: left;
+  unicode-bidi: bidi-override;
+  > a {
+    display: inline-block;
+    /*position: relative;*/
+    &:hover {
+      text-decoration: none;
+    }
+    &:hover:before,
+    &:hover ~ a:before {
+      content: '★'; /* Original star is &#9734;, filled is \2605 */
+      cursor: pointer;
+      position: absolute;
+    }
+  }
+}
+#profiles {
+  > a {
+    display: inline-block;
+  }
 }

@@ -1,9 +1,7 @@
-<section class="companies">
-  <div class="container-fluid">
-    <ul id="all-companies" class="all-companies row list-group">
-      <% @companies.each do |c| %>
-      <li class="col-md-4 list-group-item"><%= link_to c.name, c %></li>
-      <% end %>
-    </ul>
-  </div>
+<section class="companies container-fluid">
+  <ul id="all-companies" class="all-companies row list-group">
+    <% @companies.each do |c| %>
+    <li class="col-md-4 col-sm-12 list-group-item"><%= link_to c.name, c %></li>
+    <% end %>
+  </ul>
 </section>

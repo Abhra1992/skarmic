@@ -58,4 +58,13 @@ Skarmic::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  # namespace :candidate do
+  #   resources :applications, only: [:index, :show, :create, :destroy]
+  # end
+
+  namespace :recruiter do
+    resources :applications, only: :show do
+      put "rate", on: :member
+    end
+  end
 end
