@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .companies-show {
-  margin-top: 20px;
+  .nav {
+    padding-right: 0;
+  }
 }
 .description {
   border-left: 1px solid lightgray;

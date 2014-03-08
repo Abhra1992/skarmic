@@ -1,13 +1,15 @@
 <section class="company-card row">
-  <h1><%= company %></h1>
-  <address>
-    <%= company.address %><br/>
-    <%= company.city %>, <%= company.state %> <%= company.zip %>
-  </address>
-  <h4>Openings</h4>
-  <ul>
-    <% positions.each do |p| %>
-    <li><%= link_to p, p %>(<%= p.count %>)</li>
-    <% end %>
-  </ul>
+  <div class="col-md-12">
+    <h1><%= company %></h1>
+    <address>
+      <%= company.address %><br/>
+      <%= company.city %>, <%= company.state %> <%= company.zip %>
+    </address>
+    <h4>Openings</h4>
+    <ul>
+      <% positions.each do |p| %>
+      <li><%= link_to p, p %>(<%= p.count %>)</li>
+      <% end %>
+    </ul>
+  </div>
 </section>

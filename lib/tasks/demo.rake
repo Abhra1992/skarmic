@@ -74,6 +74,7 @@ namespace :db do
       Candidate.all.sample(5).each do |c|
         p.applications.new do |a|
           a.candidate = c
+          a.stage = 0
           a.rating = rand(6)
           a.save
         end

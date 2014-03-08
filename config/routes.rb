@@ -63,6 +63,8 @@ Skarmic::Application.routes.draw do
   # end
 
   namespace :recruiter do
-    resources :applications, only: :show
+    resources :applications, only: :show do
+      put "rate", on: :member
+    end
   end
 end
