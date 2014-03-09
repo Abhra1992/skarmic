@@ -45,13 +45,4 @@
 
 <%= render "companies/application/probing" %>
 <%= render "companies/application/attachments" %>
-
-<section class="messages row">
-  <div class="col-md-12 col-sm-12">
-    <h4 class="mt-0">Messages</h4>
-    <p><%= link_to "View Older Messages", "#" %> <%= icon "refresh" %></p>
-    <div class="panel-group chat-messages" id="accordion">
-      <%= render application.recent_messages %>
-    </div>
-  </div>
-</section>
+<%= render "companies/application/messages", application: application %>
