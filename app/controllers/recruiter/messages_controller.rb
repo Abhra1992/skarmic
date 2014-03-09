@@ -3,8 +3,7 @@ class Recruiter::MessagesController < ApplicationController
   respond_to :js
 
   def create
-    @application = Application.find params[:application_id]
-    @message = @application.messages.build(body: params[:message][:body], messager: current_recruiter)
+    @message = Application.find(params[:application_id]).messages.build(body: params[:message][:body], messager: current_recruiter)
     if @message.save
       flash[:notice] = "Successfully Posted Message"
     end
