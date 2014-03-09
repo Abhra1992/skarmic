@@ -38,6 +38,15 @@
               <li class="divider"></li>
               <li><%= link_to "Sign Out", destroy_candidate_session_path, method: :delete %></li>
             </ul>
+            <% elsif recruiter_signed_in? %>
+            <%= link_to "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do %>
+              Hello, <%= current_recruiter %> <b class="caret"></b>
+            <% end %>
+            <ul class="dropdown-menu">
+              <li><%= link_to "My Account", "#" %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign Out", destroy_recruiter_session_path, method: :delete %></li>
+            </ul>
             <% else %>
             <%= link_to "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do %>
               Sign In <b class="caret"></b>

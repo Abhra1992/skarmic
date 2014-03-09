@@ -45,21 +45,4 @@
 
 <%= render "companies/application/probing" %>
 <%= render "companies/application/attachments" %>
-
-<section class="messages row">
-  <div class="col-md-12 col-sm-12">
-    <h4 class="mt-0">Messages</h4>
-    <p><%= link_to "View Older Messages", "#" %> <%= icon "refresh" %></p>
-    <div class="panel-group chat-messages" id="accordion">
-      <%= render application.recent_messages %>
-    </div>
-    <div class="messages clearfix mt-0"><div class="form-group mt-20" id="sendMessage">
-      <textarea id="text" maxlength="100" rows="5" placeholder="Send Message" class="form-control">
-      </textarea>
-      <small class="text-muted status" id="chars"></small>
-    </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-sm col-sm-2 pull-right" href="">Send Message</button>
-    </div>
-  </div>
-</section>
+<%= render "companies/application/messages", application: application %>

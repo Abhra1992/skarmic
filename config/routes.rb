@@ -55,6 +55,12 @@ Skarmic::Application.routes.draw do
   #   end
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
+  concern :messageable do
+    resources :messages, only: [:create, :destroy]
+  end
+
+  # only: [] is cryptic, meant to get rid of parent scope in :applications
+  resources :applications, only: [], concerns: :messageable
 
   # Example resource route within a namespace:
   #   namespace :admin do
