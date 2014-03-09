@@ -53,5 +53,13 @@
     <div class="panel-group chat-messages" id="accordion">
       <%= render application.recent_messages %>
     </div>
+    <div class="messages clearfix mt-0"><div class="form-group mt-20" id="sendMessage">
+      <textarea id="text" maxlength="100" rows="5" placeholder="Send Message" class="form-control">
+      </textarea>
+      <small class="text-muted status" id="chars"></small>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-sm col-sm-2 pull-right" href="">Send Message</button>
+    </div>
   </div>
 </section>
