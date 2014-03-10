@@ -3,11 +3,11 @@
     <h4 class="mt-0">Messages</h4>
     <p><%= link_to "View Older Messages", "#" %> <%= icon "refresh" %></p>
     <div class="panel-group chat-messages" id="messages-accordion">
-      <%= render application.recent_messages %>
+      <%= render partial: "recruiter/messages/message", collection: application.recent_messages %>
     </div>
 
     <div class="messages mt-0">
-      <%= form_for [application, Message.new], remote: true do |f| %>
+      <%= form_for [:recruiter, application, Message.new], remote: true do |f| %>
         <div class="form-group mt-20">
           <%= f.text_area :body, placeholder: "Message", id: "new-message-box", class: "form-control", rows: 3, maxlength: 100 %>
           <span id="message-chars-count" class="text-muted status">0</span>/100 characters

@@ -60,7 +60,7 @@ Skarmic::Application.routes.draw do
   end
 
   # only: [] is cryptic, meant to get rid of parent scope in :applications
-  resources :applications, only: [], concerns: :messageable
+  # resources :applications, only: [], concerns: :messageable
 
   # Example resource route within a namespace:
   #   namespace :admin do
@@ -69,11 +69,11 @@ Skarmic::Application.routes.draw do
   #     resources :products
   #   end
   namespace :candidate do
-    resources :applications, only: [:index, :show]
+    resources :applications, only: [:index, :show], concerns: :messageable
   end
 
   namespace :recruiter do
-    resources :applications, only: :show do
+    resources :applications, only: :show, concerns: :messageable do
       put "rate", on: :member
     end
   end
