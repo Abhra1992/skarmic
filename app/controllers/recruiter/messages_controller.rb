@@ -1,20 +1,11 @@
-class Recruiter::MessagesController < ApplicationController
+class Recruiter::MessagesController < MessagesController
   before_action :authenticate_recruiter!
-  respond_to :js
 
   def create
-    @message = Application.find(params[:application_id]).messages.build(body: params[:message][:body], messager: current_recruiter)
-    if @message.save
-      flash[:notice] = "Successfully Posted Message"
-    end
-    respond_with @message
+    self.create_message(params[:application_id], params[:message][:body], current_recruiter)
   end
 
   def destroy
-    @message = Message.find params[:id]
-    if @message.destroy
-      flash[:notice] = "Message Deleted"
-    end
-    respond_with @message
+    self.destroy_message(params[:id], current_recruiter)
   end
 end
