@@ -2,7 +2,7 @@ class Candidate::ApplicationsController < ApplicationController
   before_action :authenticate_candidate!
 
   respond_to :html, :json, only: [:index, :show]
-  respond_to :js, only: [:create, :destroy]
+  respond_to :js, only: [:show, :create, :destroy]
 
   def index
     respond_with(@applications = current_candidate.applications)
@@ -21,7 +21,7 @@ class Candidate::ApplicationsController < ApplicationController
   end
 
   def destroy
-    @application = current_candidate.applications.find_by_position_id(params[:position_id])
+    @application = current_candidate.applications.find_by_id_and_position_id(params[:id], params[:position_id])
     if @application.destroy
       flash[:notice] = "Application Deleted"
     end
