@@ -2,7 +2,9 @@ class CompaniesController < ApplicationController
   respond_to :html, :json
 
   def index
-    respond_with(@companies = Company.all)
+    @companies = Company.all
+    @my_company_id = (recruiter_signed_in? and current_recruiter.company_id)
+    respond_with @companies
   end
 
   def show
