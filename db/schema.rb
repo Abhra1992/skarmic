@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140308140533) do
+ActiveRecord::Schema.define(version: 20140311131732) do
 
   create_table "applications", force: true do |t|
     t.integer  "candidate_id"
@@ -73,6 +73,17 @@ ActiveRecord::Schema.define(version: 20140308140533) do
 
   add_index "messages", ["application_id"], name: "index_messages_on_application_id"
   add_index "messages", ["messager_id", "messager_type"], name: "index_messages_on_messager_id_and_messager_type"
+
+  create_table "notes", force: true do |t|
+    t.string   "body"
+    t.integer  "application_id"
+    t.integer  "recruiter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notes", ["application_id"], name: "index_notes_on_application_id"
+  add_index "notes", ["recruiter_id"], name: "index_notes_on_recruiter_id"
 
   create_table "positions", force: true do |t|
     t.string   "title"

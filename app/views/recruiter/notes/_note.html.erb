@@ -1,0 +1,14 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <%= link_to "#note-#{note.id}", "data-toggle" => "collapse", "data-parent" => "#messages-accordion" do %>
+        <%= note.notetaker %> <small class="text-muted ml-5"><%= distance_of_time_in_words_to_now note.created_at %> ago</small>
+      <% end %>
+    </h4>
+  </div>
+  <div id="note-<%= note.id %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p><%= note.body %></p>
+    </div>
+  </div>
+</div>

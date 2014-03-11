@@ -74,6 +74,7 @@ Skarmic::Application.routes.draw do
 
   namespace :recruiter do
     resources :applications, only: :show, concerns: :messageable do
+      resources :notes, only: [:create, :destroy]
       put "rate", on: :member
     end
   end

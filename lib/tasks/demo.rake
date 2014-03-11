@@ -89,6 +89,14 @@ namespace :db do
           m.save
         end
       end
+
+      3.times do
+        a.notes.new do |n|
+          n.body = Faker::Lorem.sentence
+          n.recruiter = r
+          n.save
+        end
+      end
     end
   end
 end
