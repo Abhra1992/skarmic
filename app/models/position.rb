@@ -8,7 +8,6 @@ class Position < ActiveRecord::Base
   serialize :skills_required
   serialize :skills_desired
   serialize :responsibilities
-  serialize :available_from
 
   validates_presence_of :title
   validates :count, presence: true, numericality: { only_integer: true }
