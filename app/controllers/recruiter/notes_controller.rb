@@ -1,6 +1,8 @@
 class Recruiter::NotesController < ApplicationController
   before_action :authenticate_recruiter!
 
+  respond_to :js
+
   def create
     @note = Application.find(params[:application_id]).notes.build(body: params[:note][:body], recruiter: current_recruiter)
     if @note.save

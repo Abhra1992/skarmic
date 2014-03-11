@@ -1,7 +1,7 @@
 <div class="panel panel-info">
   <div class="panel-heading">
     <h4 class="panel-title">
-      <%= link_to "#note-#{note.id}", "data-toggle" => "collapse", "data-parent" => "#note-accordion" do %>
+      <%= link_to "#note-#{note.id}", "data-toggle" => "collapse", "data-parent" => "#notes-accordion" do %>
         <%= note.notetaker %> <small class="text-muted ml-5"><%= distance_of_time_in_words_to_now note.created_at %> ago</small>
       <% end %>
     </h4>
