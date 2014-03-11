@@ -1,8 +1,12 @@
 <section class="position-show container-fluid">
-  <div class="row details">
-    <div class="col-md-8 col-sm-12" id="details">
+  <div class="row foreword">
+    <div class="col-md-12 col-md-12 text-center">
       <h2><%= @position %> @ <%= link_to @company, @company %></h2>
       <p><%= pluralize @position.count, "Opening" %> - <%= pluralize @position.applications.count, "Applicant" %>
+    </div>
+  </div>
+  <div class="row details">
+    <div class="col-md-8 col-sm-12" id="details">
       <h3>Required Skills</h3>
       <ul>
         <% @position.skills_required.each do |s| %>

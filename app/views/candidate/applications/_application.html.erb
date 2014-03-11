@@ -1,0 +1,16 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <%= link_to application.position, "#application-#{application.id}", "data-toggle" => "collapse", "data-parent" => "#accordion" %>
+      <%= link_to (icon "hand-o-right"), [:candidate, application], class: "review-link", remote: true %>
+    </h4>
+  </div>
+  <div id="application-<%= application.id %>" class="panel-collapse collapse">
+    <div class="panel-body">
+      <p>Position Page: <%= link_to application.position, application.position %></p>
+      <p>Company Page: <%= link_to application.company, application.company %></p>
+      <p>View Application: <%= link_to "Details Page", [:candidate, application] %></p>
+      <p>Applied on <%= application.created_at.to_date %></p>
+    </div>
+  </div>
+</div>

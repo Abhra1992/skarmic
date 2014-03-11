@@ -1,4 +1,4 @@
 <p>You have already applied for this position.</p>
-<%= link_to "View Application", candidate_application_path(application), class: "btn btn-default" %>
-<%= link_to "Delete Application", position_candidate_application_path(position, application), class: "btn btn-danger",
+<%= link_to "View Application", [:candidate, application], class: "btn btn-default" %>
+<%= link_to "Delete Application", [position, :candidate, application], class: "btn btn-danger",
 method: :delete, data: { confirm: "Are You Sure?" }, remote: true %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  application_id: 
+  recruiter_id: 
+
+two:
+  body: MyString
+  application_id: 
+  recruiter_id: 

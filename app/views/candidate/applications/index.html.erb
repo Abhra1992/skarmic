@@ -1,24 +1,18 @@
 <section class="my-applications container-fluid">
+  <div class="row foreword">
+    <div class="col-md-12 col-md-12 text-center">
+      <h2 class="mt-0">My Applications</h2>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-md-12 col-sm-12">
-      <h4 class="mt-0">My Applications</h4>
+    <div class="col-md-4 col-sm-12">
       <div class="panel-group applications" id="accordion">
-        <% @applications.each do |a| %>
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">
-              <%= link_to a.position, "#application-#{a.id}", "data-toggle" => "collapse", "data-parent" => "#accordion" %>
-            </h4>
-          </div>
-          <div id="application-<%= a.id %>" class="panel-collapse collapse">
-            <div class="panel-body">
-              <p>Position Page: <%= link_to a.position, a.position %></p>
-              <p>Company Page: <%= link_to a.company, a.company %></p>
-              <p>Applied on <%= a.created_at.to_date %></p>
-            </div>
-          </div>
-        </div>
-        <% end %>
+        <%= render @applications %>
+      </div>
+    </div>
+    <div class="col-md-8 col-sm-12">
+      <div class="well" id="application-pane">
+        <%= render "viewport", application: @applications[0] %>
       </div>
     </div>
   </div>

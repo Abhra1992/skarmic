@@ -48,10 +48,8 @@ namespace :db do
       end
 
       puts "Connecting Recruiters to Positions"
-      6.times do
-        r = c.recruiters.sample
-        p = c.positions.sample
-        r.positions << p
+      c.positions.each do |p|
+        p.recruiters << c.recruiters.sample
       end
     end
 
@@ -89,6 +87,14 @@ namespace :db do
           m.body = Faker::Lorem.sentence
           m.messager = [c, r].sample
           m.save
+        end
+      end
+
+      3.times do
+        a.notes.new do |n|
+          n.body = Faker::Lorem.sentence
+          n.recruiter = r
+          n.save
         end
       end
     end

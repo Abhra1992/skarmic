@@ -1,2 +1,2 @@
 <p>Apply for this position.</p>
-<%= link_to "Apply", position_candidate_applications_path(position), class: "btn btn-primary", method: :post, remote: true %>
+<%= link_to "Apply", [position, :candidate, Application.new], class: "btn btn-primary", method: :post, remote: true %>
