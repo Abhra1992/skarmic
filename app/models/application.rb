@@ -5,6 +5,7 @@ class Application < ActiveRecord::Base
   has_many :recruiters, through: :position
   has_many :messages
   has_many :messagers, through: :messages
+  has_many :notes
 
   validates_numericality_of :stage, :rating
 
@@ -14,5 +15,9 @@ class Application < ActiveRecord::Base
 
   def recent_messages
     messages.last(5)
+  end
+
+  def recent_notes
+    notes.last(5)
   end
 end

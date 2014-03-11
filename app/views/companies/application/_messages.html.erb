@@ -6,14 +6,35 @@
       <%= render partial: "recruiter/messages/message", collection: application.recent_messages %>
     </div>
 
-    <div class="messages mt-0">
+    <div class="messages-form mt-0">
       <%= form_for [:recruiter, application, Message.new], remote: true do |f| %>
         <div class="form-group mt-20">
-          <%= f.text_area :body, placeholder: "Message", id: "new-message-box", class: "form-control", rows: 3, maxlength: 100 %>
+          <%= f.text_area :body, placeholder: "Draft Message Here", id: "new-message-box", class: "form-control", rows: 3, maxlength: 100 %>
           <span id="message-chars-count" class="text-muted status">0</span>/100 characters
         </div>
         <div class="form-group">
           <%= f.submit "Post Message", class: "btn btn-primary btn-sm col-sm-2 pull-right" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="notes row">
+  <div class="col-md-12 col-sm-12">
+    <h4 class="mt-0">Notes</h4>
+    <p><%= link_to "View Older Notes", "#" %> <%= icon "refresh" %></p>
+    <div class="panel-group take-notes" id="notes-accordion">
+      <%= render partial: "recruiter/notes/note", collection: application.recent_notes %>
+    </div>
+
+    <div class="notes-form mt-0">
+      <%= form_for [:recruiter, application, Note.new], remote: true do |f| %>
+        <div class="form-group mt-20">
+          <%= f.text_area :body, placeholder: "Draft Note Here", id: "new-note-box", class: "form-control", rows: 2, maxlength: 50 %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Add Note", class: "btn btn-primary btn-sm col-sm-2 pull-right" %>
         </div>
       <% end %>
     </div>
