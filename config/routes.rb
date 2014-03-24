@@ -65,7 +65,7 @@ Skarmic::Application.routes.draw do
   #   resources :posts, concerns: :toggleable
   #   resources :photos, concerns: :toggleable
   concern :messageable do
-    resources :messages, only: [:create, :destroy], shallow: true
+    resources :messages, only: [:create, :destroy]
   end
 
   # Example resource route within a namespace:
