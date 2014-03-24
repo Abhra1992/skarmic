@@ -5,6 +5,7 @@ gem 'rails', '4.0.3'
 ruby '2.0.0'
 
 gem 'thin'
+gem 'responders'
 gem 'devise'
 gem 'carrierwave'
 gem 'figaro'
