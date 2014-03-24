@@ -21,7 +21,7 @@ class Candidate::ApplicationsController < ApplicationController
   end
 
   def destroy
-    @application = current_candidate.applications.find_by_id_and_position_id(params[:id], params[:position_id])
+    @application = current_candidate.applications.find params[:id]
     if @application.destroy
       flash[:notice] = "Application Deleted"
     end
