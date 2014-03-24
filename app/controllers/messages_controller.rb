@@ -5,18 +5,13 @@ class MessagesController < ApplicationController
 
   def create_message(application_id, body, messager)
     @application = Application.find application_id
-    @message = @application.messages.build body: body, messager: messager
-    if @message.save
-      flash[:notice] = "Successfully Posted Message"
-    end
+    @message = @application.messages.create body: body, messager: messager
     respond_with @message
   end
 
   def destroy_message(message_id, messager)
     @message = messager.messages.find message_id
-    if @message.destroy
-      flash[:notice] = "Message Deleted"
-    end
+    @message.destroy
     respond_with @message
   end
 end

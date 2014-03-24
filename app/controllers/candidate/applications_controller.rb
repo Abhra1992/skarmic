@@ -13,18 +13,13 @@ class Candidate::ApplicationsController < ApplicationController
   end
 
   def create
-    @application = current_candidate.applications.build params.permit(:position_id)
-    if @application.save
-      flash[:success] = "Successfully Applied for position"
-    end
+    @application = current_candidate.applications.create params.permit(:position_id)
     respond_with @application
   end
 
   def destroy
     @application = current_candidate.applications.find params[:id]
-    if @application.destroy
-      flash[:notice] = "Application Deleted"
-    end
+    @application.destroy
     respond_with @application
   end
 end
