@@ -10,9 +10,6 @@ class Recruiter::ApplicationsController < ApplicationController
   def rate
     @application = current_recruiter.applications.find params[:id]
     @rating = params[:rating]
-    @application.rating = @rating
-    if @application.save
-      render nothing: true
-    end
+    @application.update_attribute :rating, @rating
   end
 end

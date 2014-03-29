@@ -1,12 +1,21 @@
 Skarmic::Application.routes.draw do
   devise_for :candidates
   devise_for :recruiters
+
+  # Devise Scope Specific Routes
+  authenticated :recruiter do
+    root "companies#index", as: :recruiter_root
+  end
+  authenticated :candidate do
+    root "candidate/applications#index", as: :candidate_root
+  end
+
   get "pages/contact"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root "home#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -36,8 +45,8 @@ Skarmic::Application.routes.draw do
   #     resource :seller
   #   end
   resources :positions, only: :show do
-    namespace :candidate do
-      resources :applications, only: [:create, :destroy]
+    scope module: :candidate do
+      resources :applications, only: [:create, :destroy], shallow: true
     end
   end
 
@@ -59,23 +68,20 @@ Skarmic::Application.routes.draw do
     resources :messages, only: [:create, :destroy]
   end
 
-  # only: [] is cryptic, meant to get rid of parent scope in :applications
-  # resources :applications, only: [], concerns: :messageable
-
   # Example resource route within a namespace:
   #   namespace :admin do
   #     # Directs /admin/products/* to Admin::ProductsController
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  namespace :candidate do
+  scope as: :candidate, module: :candidate do
     resources :applications, only: [:index, :show], concerns: :messageable
   end
 
-  namespace :recruiter do
+  scope as: :recruiter, module: :recruiter do
     resources :applications, only: :show, concerns: :messageable do
-      resources :notes, only: [:create, :destroy]
-      put "rate", on: :member
+      resources :notes, only: [:create, :destroy], shallow: true
+      put "rate/:rating", on: :member, as: :rate, action: :rate
     end
   end
 end

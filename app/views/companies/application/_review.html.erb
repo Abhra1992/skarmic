@@ -6,9 +6,9 @@
   <div class="col-lg-7 col-md-7 candidate-name-rating">
     <h4 class="mt-0"><%= candidate %></h4>
     <section class="stars" id="star-rating">
-      <% 5.times do |i| %>
-      <% star = application.rating >= 5 - i ? "★" : "☆" %>
-      <%= link_to star, rate_recruiter_application_path(application, rating: (5 - i)), method: :put, remote: true %>
+      <% 5.downto(1) do |i| %>
+      <% star = application.rating >= i ? "★" : "☆" %>
+      <%= link_to star, rate_recruiter_application_path(application, i), id: "rating-#{i}", method: :put, remote: true %>
       <% end %>
     </section>
     <div id="stars" class="stars"></div>

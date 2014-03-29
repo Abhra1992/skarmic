@@ -3,15 +3,15 @@ class CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-    @my_company_id = (recruiter_signed_in? and current_recruiter.company_id)
+    @my_company_id = current_recruiter.company_id if recruiter_signed_in?
     respond_with @companies
   end
 
   def show
     @company = Company.find params[:id]
-    @view_openings = (recruiter_signed_in? and current_recruiter.in? @company.recruiters)
+    @view_openings = (current_recruiter.in? @company.recruiters) if recruiter_signed_in?
     @positions = @company.positions
-    @applied = (candidate_signed_in? and (current_candidate.position_ids & @company.position_ids))
+    @applied = (current_candidate.position_ids & @company.position_ids) if candidate_signed_in?
     respond_with @company
   end
 end

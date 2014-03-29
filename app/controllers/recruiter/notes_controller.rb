@@ -4,18 +4,14 @@ class Recruiter::NotesController < ApplicationController
   respond_to :js
 
   def create
-    @note = Application.find(params[:application_id]).notes.build(body: params[:note][:body], recruiter: current_recruiter)
-    if @note.save
-      flash[:notice] = "Successfully Posted Note"
-    end
+    @application = Application.find params[:application_id]
+    @note = @application.notes.create body: params[:note][:body], recruiter: current_recruiter
     respond_with @note
   end
 
   def destroy
-    @note = current_recruiter.notes.find(params[:id])
-    if @note.destroy
-      flash[:notice] = "Note Deleted"
-    end
+    @note = current_recruiter.notes.find params[:id]
+    @note.destroy
     respond_with @note
   end
 end

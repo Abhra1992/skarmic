@@ -8,6 +8,7 @@ class Application < ActiveRecord::Base
   has_many :notes
 
   validates_numericality_of :stage, :rating
+  validates_uniqueness_of :candidate_id, scope: :position_id, message: "You can apply to this position only once"
 
   def company
     position.company
